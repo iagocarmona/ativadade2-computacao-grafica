@@ -1,4 +1,4 @@
 all:
-	gcc main.c -o main -lGL -lglut -lGLU
+	gcc main2.c -o main -lGL -lglut -lGLU
 	./main
-
+	rm main
