@@ -1,7 +1,12 @@
+// Felipe Martins Sanches, 2390809
+// Iago Ortega Carmona, 2277980
+// Amanda Ferrari, 2380480
+
 #include <GL/freeglut.h>
 
 
 float dia = 0, hora = 0;
+float angleZ = 0.0f;
 
 void Timer(int value){
     hora += 1.0f;
@@ -72,17 +77,36 @@ void display() {
     glViewport(300, 0, 300, 300);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(-3, 3, -3, 3, 1, 50);
+    //glOrtho(-3, 3, -3, 3, 1, 50);
+
+    gluPerspective(70.0f, 1.0f, 1.0f, 50.0f);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(0, 0, 10,
+
+    glPushMatrix();
+    glRotatef(angleZ, 0.0f, 0.0f, 1.0f);
+
+    gluLookAt(0, 0, 5,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
+    glRotatef(45.0, 1.0, 0.0, 0.0);
     glColor3f(1, 0, 0);
     glutWireTeapot(1.5);
 
+    glPopMatrix();
+
     glFlush();
+}
+
+void idle() {
+
+    angleZ += 1.0f;
+    if (angleZ > 360.0f) {
+        angleZ -= 360.0f;
+    }
+
+    glutPostRedisplay();
 }
 
 int main(int argc, char** argv){
@@ -95,6 +119,7 @@ int main(int argc, char** argv){
     init();                                         //executa fun��o de inicializa��o
     glutDisplayFunc(display);
     glutTimerFunc(40,Timer, 1);
+    glutIdleFunc(idle);
     glutMainLoop();                                  //mostre tudo e espere
     return 0;
 
