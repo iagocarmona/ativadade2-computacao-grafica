@@ -31,7 +31,7 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     // Viewport 1 (top-left)
-    glViewport(0, 300, 300, 300);
+    glViewport(0, 400, 400, 400);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-3, 3, -3, 3, 1, 50);
@@ -45,7 +45,7 @@ void display() {
     glutWireTeapot(1.5);
 
     // Viewport 2 (top-right)
-    glViewport(300, 300, 300, 300);
+    glViewport(400, 400, 400, 400);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-3, 3, -3, 3, 1, 50);
@@ -59,7 +59,7 @@ void display() {
     glutWireTeapot(1.5);
 
     // Viewport 3 (bottom-left)
-    glViewport(0, 0, 300, 300);
+    glViewport(0, 0, 400, 400);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-3, 3, -3, 3, 1, 50);
@@ -74,7 +74,7 @@ void display() {
     glutWireTeapot(1.5);
 
     // Viewport 4 (bottom-right)
-    glViewport(300, 0, 300, 300);
+    glViewport(400, 0, 400, 400);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     //glOrtho(-3, 3, -3, 3, 1, 50);
@@ -113,7 +113,7 @@ int main(int argc, char** argv){
     glutInit(&argc,argv);                           //inicializa o GLUT
     glutInitDisplayMode(GLUT_SINGLE| GLUT_RGB);    //configura o modo de display
     glutInitWindowPosition(200,0);                  //seta a posi��o inicial da janela
-    glutInitWindowSize(600,600);                    //configura a largura e altura da janela de exibi��o
+    glutInitWindowSize(800,800);                    //configura a largura e altura da janela de exibi��o
     glutCreateWindow("3D");                 //cria a janela de exibi��o
 
     init();                                         //executa fun��o de inicializa��o
